@@ -18,13 +18,13 @@ function Priview() {
 
     useEffect(() => {
         if(!cameraImage){
+        history.replace("/");
             
         }
     }, [cameraImage, history])
 
     const closePreview = () =>{
         dispatch(resetCameraImage())
-        history.replace("/");
 
     }
 

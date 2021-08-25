@@ -24,7 +24,7 @@ function WebcamCapture() {
         () => {
             const imageSrc = webcamRef.current.getScreenshot();
             dispatch(setCameraImage(imageSrc));
-            history.push("./preview");
+            history.push("/preview");
         },
         [webcamRef]
     )
