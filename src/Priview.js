@@ -18,25 +18,25 @@ function Priview() {
 
     useEffect(() => {
         if(!cameraImage){
-        history.replace("/");
-            
+            history.replace("/"); 
         }
     }, [cameraImage, history])
 
     const closePreview = () =>{
         dispatch(resetCameraImage())
-
+        history.replace("/"); 
     }
 
     const sendPost = () =>{
         const id = uuid();
         const uploadTask = storage
-        .ref(`posts${id}`)
-        .putString(cameraImage, "data_url")
+            .ref(`posts/${id}`)
+            .putString(cameraImage, "data_url")
 
         uploadTask.on("state_changed",
         null,
         (error)=>{
+            // error fuction
             console.log(error);
         },
         () =>{
@@ -53,7 +53,7 @@ function Priview() {
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),                    
 
                 })
-                history.replace("/chats")
+                history.replace("/chats"); 
             })
         }
         )
